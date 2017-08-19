@@ -1321,9 +1321,8 @@ int xhci_bus_resume(struct usb_hcd *hcd)
 					xhci, port_index + 1);
 			if (slot_id)
 				xhci_ring_device(xhci, slot_id);
-		} else {
-			xhci_writel(xhci, temp, port_array[port_index]);	
-		}
+		} else
+			xhci_writel(xhci, temp, port_array[port_index]);
 	}
 
 	(void) xhci_readl(xhci, &xhci->op_regs->command);

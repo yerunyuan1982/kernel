@@ -489,7 +489,6 @@ static int xhci_all_ports_seen_u0(struct xhci_hcd *xhci)
 	return (xhci->port_status_u0 == ((1 << xhci->num_usb3_ports)-1));
 }
 
-
 /*
  * Initialize memory for HCD and xHC (one-time init).
  *

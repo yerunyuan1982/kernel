@@ -33,6 +33,7 @@ static void xhci_plat_quirks(struct device *dev, struct xhci_hcd *xhci)
 	 * here that the generic code does not try to make a pci_dev from our
 	 * dev struct in order to setup MSI
 	 */
+	xhci->quirks |= XHCI_PLAT;
 
 	if (!pdata)
 		return;
@@ -42,8 +43,6 @@ static void xhci_plat_quirks(struct device *dev, struct xhci_hcd *xhci)
 
 	if (pdata->vendor == SYNOPSIS_DWC3_VENDOR && pdata->revision == 0x250A)
 		xhci->quirks |= XHCI_RESET_DELAY;
-
-	xhci->quirks |= XHCI_PLAT;
 }
 
 /* called during probe() after chip reset completes */
