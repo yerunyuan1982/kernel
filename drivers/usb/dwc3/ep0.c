@@ -716,7 +716,6 @@ static int dwc3_ep0_std_request(struct dwc3 *dwc, struct usb_ctrlrequest *ctrl)
 		break;
 	case USB_REQ_SET_INTERFACE:
 		dev_vdbg(dwc->dev ,"USB_REQ_SET_INTERFACE");
-		dwc->start_config_issued = false;
 	default:
 		dev_vdbg(dwc->dev, "Forwarding to gadget driver\n");
 		ret = dwc3_ep0_delegate_req(dwc, ctrl);
