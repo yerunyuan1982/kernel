@@ -1231,7 +1231,7 @@ int xhci_bus_suspend(struct usb_hcd *hcd)
 			t2 &= ~PORT_WAKE_BITS;
 
 		t1 = xhci_port_state_to_neutral(t1);
-		if (t1 != t2) {
+		if (t1 != t2)
 			xhci_writel(xhci, t2, port_array[port_index]);
 	}
 	hcd->state = HC_STATE_SUSPENDED;
@@ -1310,7 +1310,8 @@ int xhci_bus_resume(struct usb_hcd *hcd)
 			if (slot_id)
 				xhci_ring_device(xhci, slot_id);
 		} else {
-			xhci_writel(xhci, temp, port_array[port_index]);
+			xhci_writel(xhci, temp, port_array[port_index]);	
+		}
 	}
 
 	(void) xhci_readl(xhci, &xhci->op_regs->command);
